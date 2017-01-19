@@ -1,8 +1,7 @@
-
-
-var CLIENT_ID = '';
+var CLIENT_ID = '1057434742659-j9qec28nlfo8q420epsbmpj5cm5tc5kd.apps.googleusercontent.com';
 
 var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
+
 
 function checkAuth() {
   gapi.auth.authorize(
@@ -40,7 +39,7 @@ function listUpcomingEvents() {
     'timeMin': (new Date()).toISOString(),
     'showDeleted': false,
     'singleEvents': true,
-    'maxResults': 10,
+    'maxResults': 40,
     'orderBy': 'startTime'
   });
 

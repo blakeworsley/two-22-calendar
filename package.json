@@ -1,0 +1,17 @@
+{
+  "name": "two22calendar",
+  "version": "1.0.0",
+  "description": "Cal for Two 22",
+  "main": "index.js",
+  "scripts": {
+    "start": "python -m SimpleHTTPServer 8000",
+    "test": ""
+  },
+  "keywords": [],
+  "author": "Blake Worsley <blakeworsley@gmail.com> (http://www.blakeworsley.com)",
+  "license": "ISC",
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}

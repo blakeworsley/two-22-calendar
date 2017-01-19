@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="index.css">      
     <title>Calendar for google</title>
   </head>
   <body>
-
+    <div id="demo"></demo>
     <h1>Two 22 Calendar with Google API</h1>
     <section class="calendar">
       <header class="calendar-header">
@@ -100,7 +100,25 @@
       </section>
     </section>
 
-    <script type="text/javascript" src="index.js">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script>
+      var $calendar = $('.calendar');
+      var cal_id = '';
+      var api_key = '';
+      function getCalendar(){
+        $.ajax({
+            url:"https://www.googleapis.com/calendar/v3/calendars/" + cal_id + "/events?key=" + api_key,
+            success: function(data) { 
+              return displayEvents(data) 
+            }
+        });
+        ;
+      }
+      function displayEvents(calendarEvents) {
+        calendarEvents.items.map((item) => $calendar.append(`<h1>${item.summary}</h1>`));
+      }
+      getCalendar();
     </script>
   </body>
 </html>
