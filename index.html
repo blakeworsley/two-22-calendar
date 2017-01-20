@@ -101,24 +101,7 @@
     </section>
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="node_modules/moment/moment.js"></script>
     <script type="text/javascript" src="index.js"></script>
-    <script>
-      var $calendar = $('.calendar');
-      var cal_id = '';
-      var api_key = '';
-      function getCalendar(){
-        $.ajax({
-            url:"https://www.googleapis.com/calendar/v3/calendars/" + cal_id + "/events?key=" + api_key,
-            success: function(data) { 
-              return displayEvents(data) 
-            }
-        });
-        ;
-      }
-      function displayEvents(calendarEvents) {
-        calendarEvents.items.map((item) => $calendar.append(`<h1>${item.summary}</h1>`));
-      }
-      getCalendar();
-    </script>
   </body>
 </html>

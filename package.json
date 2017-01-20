@@ -10,8 +10,8 @@
   "keywords": [],
   "author": "Blake Worsley <blakeworsley@gmail.com> (http://www.blakeworsley.com)",
   "license": "ISC",
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
+    "moment": "^2.17.1"
   }
 }
