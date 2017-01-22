@@ -3,6 +3,8 @@ body {
   align-items: center;
   flex-direction: column;
   width: 100vw;
+  font-family: century gothic;
+  font-weight: bold;
 }
 
 .calendar {
@@ -14,8 +16,12 @@ body {
 
 .calendar-header {
   display: flex;
-  border: black 1px solid;
+  align-items: center;
+  justify-content: center;
+  border: #fff 1px solid;  
   width: 100%;
+  padding: 20px 0;
+  background: #EFDFAD;
 }
 
 .calendar-individual-day {
@@ -23,7 +29,7 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border: black 1px solid;
+  border: #fff 1px solid;
 }
 
 .individual-day-date {
@@ -31,7 +37,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #ddd;
+  padding: 10px;
+  width: 140px;
 }
 
 .date-numeral {
@@ -45,10 +52,93 @@ body {
 .individual-day-activities {
   display: flex;
   flex-direction: column;
-  flex: 2;
-  padding: 10px;
+  justify-content: center;
+  flex: 4;
+  padding: 20px;
+  height: 100px;
 }
 
 .individual-day-photos {
-
+  max-height: 100px;
+  max-width: 150px;
+  padding: 20px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
 }
+
+.summary {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.summary-time {
+  font-style: italic;
+}
+
+@media (max-width: 805px) {
+  .calendar {
+    width: 100vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .calendar-header {
+    display: flex;
+    width: 100%;
+  }
+
+  .calendar-individual-day {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .individual-day-date {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+  }
+
+  .date-numeral {
+    font-size: 20px;
+    padding-left: 5px;
+    font-weight: bold;
+  }
+
+  .date-text {
+    font-style: bold;    
+  }
+
+  .individual-day-activities {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 4;
+    padding-top: 30px;
+    height: inherit;
+  }
+
+  .individual-day-photos {
+    height: inherit;
+    display: flex;
+    padding-top: 10px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .summary {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+
+.even-01{
+  color: #EFDFAD;
+  background: #5B4B42;
+}
+.odd-01{
+  color: #5B4B42;
+  background: #EFDFAD;
+}
+

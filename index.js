@@ -1,4 +1,5 @@
 var $calendar = $('.calendar');
+
 var cal_id = 'okoi8uh03p6ik4bsc0lfa6vgs8@group.calendar.google.com';
 var api_key = '';
 var params = {
@@ -9,47 +10,49 @@ var params = {
   orderBy: 'startTime'
 }
 
-var calendarEvents = [];
-var currentWeeksEvents = [];
-
-function getCalendar(pageToken) {
-  var nextPage = pageToken ? `&pageToken=${pageToken}` : '';
+function getCalendar() {
   $.ajax({
     url:"https://www.googleapis.com/calendar/v3/calendars/" + cal_id + "/events",
     data: params,
     success: function (data) {
       displayEvents(data.items);
     }
-  })
+  });
 }
 
 function displayEvents(data) {
   var days = {Monday:[], Tuesday:[], Wednesday:[], Thursday:[], Friday:[], Saturday:[], Sunday:[]};
+  var keys = Object.keys(days);  
   data.map( function (item) {
     var date = moment(item.start.dateTime);
     var dayOfWeek = date.format('dddd');
     days[dayOfWeek].push(item)
   });
-
-  var keys = Object.keys(days)
   for(var i = 0; i < keys.length; i++){
     var eachDay = days[keys[i]];
     var stubbedDay = calendarDayHtml(eachDay, keys[i]);
     $calendar.append(stubbedDay);
   }
+  var $calendarIndividualDay = $('.calendar-individual-day');
+  $calendarIndividualDay.addClass('even-01');
 }
 
 function calendarDayHtml(day, dayOfWeek) {
-  var date = 00;
-  var summaries = ''
+  var date = moment().isoWeekday(dayOfWeek).format('D');
+  var summaries = '';
+  var runClub = '';
+  var foodTruck = '';
   if(day.length){
-    date = moment(day[0].start.dateTime).format('D');
+    foodTruck = `<object id='truck' data="truck.svg" width="50" height="50" type="image/svg+xml"></object>`
     for(var i = 0; i < day.length; i++){
       summaries += 
-        `<p>${day[i].summary + ' ' + 
+        `<p class="summary">${day[i].summary + ' <span class="summary-time">(' + 
         moment(day[i].start.dateTime).format('LT') + 
-        '-' + moment(day[i].end.dateTime).format('LT') 
-        }</p>`;
+        ' - ' + moment(day[i].end.dateTime).format('LT') +
+        ')</span>'}</p>`;
+      if(day[i].summary.toLowerCase() === 'run club'){
+        runClub = `<object id="shoe" data="shoe.svg" width="50" height="50" type="image/svg+xml"></object>`
+      }
     }
   }
   return ` 
@@ -62,7 +65,8 @@ function calendarDayHtml(day, dayOfWeek) {
         ${summaries}
       </section>
       <section class="individual-day-photos">
-        <img src="truck.svg"/>
+        ${runClub}
+        ${foodTruck}
       </section>
     </section>
   `
