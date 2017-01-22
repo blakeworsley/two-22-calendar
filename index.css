@@ -20,7 +20,7 @@ body {
   justify-content: center;
   border: #fff 1px solid;  
   width: 100%;
-  padding: 20px 0;
+  padding: 40px 0;
   background: #EFDFAD;
 }
 
@@ -100,12 +100,13 @@ body {
   }
 
   .date-numeral {
-    font-size: 20px;
+    font-size: 25px;
     padding-left: 5px;
     font-weight: bold;
   }
 
   .date-text {
+    font-size: 25px;
     font-style: bold;    
   }
 
