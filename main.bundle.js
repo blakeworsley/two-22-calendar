@@ -94,9 +94,13 @@
 	  var runClub = '';
 	  var foodTruck = '';
 	  if (day.length) {
-	    foodTruck = '<object id=\'truck\' data="./imgs/truck.svg" width="50" height="50" type="image/svg+xml"></object>';
 	    for (var i = 0; i < day.length; i++) {
-	      summaries += '<p class="summary">' + (day[i].summary + ' <span class="summary-time">(' + moment(day[i].start.dateTime).format('LT') + ' - ' + moment(day[i].end.dateTime).format('LT') + ')</span>') + '</p>';
+	      var summary = day[i].summary;
+	      if (day[i].summary.toLowerCase().includes('ft: ')) {
+	        summary = day[i].summary.replace('FT: ', '');
+	        foodTruck = '<object id=\'truck\' data="./imgs/truck.svg" width="50" height="50" type="image/svg+xml"></object>';
+	      }
+	      summaries += '<p class="summary">' + (summary + ' <span class="summary-time">(' + moment(day[i].start.dateTime).format('LT') + ' - ' + moment(day[i].end.dateTime).format('LT') + ')</span>') + '</p>';
 	      if (day[i].summary.toLowerCase() === 'run club') {
 	        runClub = '<object id="shoe" data="./imgs/shoe.svg" width="50" height="50" type="image/svg+xml"></object>';
 	      }
