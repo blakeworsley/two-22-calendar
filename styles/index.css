@@ -18,7 +18,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: #fff 1px solid;  
+  border: #fff 1px solid;
   width: 100%;
   padding: 40px 0;
   background: #EFDFAD;
@@ -55,7 +55,7 @@ body {
   justify-content: center;
   flex: 4;
   padding: 20px;
-  height: 100px;
+  min-height: 100px;
 }
 
 .individual-day-photos {
@@ -107,7 +107,7 @@ body {
 
   .date-text {
     font-size: 25px;
-    font-style: bold;    
+    font-style: bold;
   }
 
   .individual-day-activities {
@@ -142,4 +142,3 @@ body {
   color: #5B4B42;
   background: #EFDFAD;
 }
-
